@@ -3,22 +3,36 @@ import 'package:life_wasted/components/year.dart';
 import 'package:life_wasted/util.dart';
 
 class Life extends StatelessWidget {
-  final int weeksSoFar;
+  final double yearsSoFar;
   final int yearsTotal;
-  Life({this.weeksSoFar = 0, this.yearsTotal = 90});
+  Life({this.yearsSoFar = 0.0, this.yearsTotal = 90});
   @override
   Widget build(BuildContext context) {
-    final years = List.generate(
-        yearsTotal,
-        (y) => weeksSoFar - y * WEEKS_IN_YEAR > WEEKS_IN_YEAR
-            ? WEEKS_IN_YEAR
-            : weeksSoFar - y * WEEKS_IN_YEAR);
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: years
-          .map((weeksChecked) => Year(weeksChecked: weeksChecked))
-          .toList(),
+    final fullYearsSoFar = yearsSoFar.floor();
+    final years = List.generate(yearsTotal, (y) {
+      final year = y + 1;
+      return year <= fullYearsSoFar
+          ? WEEKS_IN_YEAR
+          : (year == fullYearsSoFar + 1
+              ? (yearsSoFar.fractional().yearToWeeks.floor())
+              : 0);
+    });
+
+    return LayoutBuilder(
+      builder: (ctx, constraints) {
+        return ConstrainedBox(
+          constraints: BoxConstraints(maxHeight: 200, minHeight: 200),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: years
+                  .map((weeksChecked) => Year(weeksChecked: weeksChecked))
+                  .toList(),
+            ),
+          ),
+        );
+      },
     );
   }
 }

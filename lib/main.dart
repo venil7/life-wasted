@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:life_wasted/components/life.dart';
 import './util.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
-final weeksSoFar = DateTime.now().difference(DateTime(1982, 3, 22)).inWeeks;
+final yearsSoFar = DateTime.now().difference(DateTime(1982, 3, 22)).inYears;
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.light(),
       home: SafeArea(
         child: Life(
-          weeksSoFar: weeksSoFar,
-          yearsTotal: 90,
+          yearsSoFar: yearsSoFar,
         ),
         minimum: EdgeInsets.all(30),
       ),
