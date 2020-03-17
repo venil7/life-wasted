@@ -21,7 +21,7 @@ class Life extends StatelessWidget {
     return LayoutBuilder(
       builder: (ctx, constraints) {
         return ConstrainedBox(
-          constraints: BoxConstraints(maxHeight: 200, minHeight: 200),
+          constraints: BoxConstraints(maxHeight: constraints.maxHeight),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,

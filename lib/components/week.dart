@@ -9,10 +9,8 @@ class WeekPainter extends CustomPainter {
     final width = size.width;
     final center = Offset(width / 2, width / 2);
     final paint = Paint();
-    paint.color = checked ? Colors.deepOrangeAccent : Colors.deepPurpleAccent;
-    final rect =
-        Rect.fromCenter(center: center, width: width - 1, height: width - 1);
-    canvas.drawRect(rect, paint);
+    paint.color = checked ? Colors.deepOrangeAccent : Colors.greenAccent;
+    canvas.drawCircle(center, width / 2 - 1, paint);
   }
 
   @override
