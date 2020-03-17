@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:life_wasted/components/life.dart';
+import 'package:life_wasted/components/bottom_navigation.dart';
 import './util.dart';
 
 void main() {
@@ -14,28 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark(),
       home: Scaffold(
-        bottomNavigationBar: BottomAppBar(
-          color: ThemeData.dark().accentColor,
-          child: BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                title: Text('Home'),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.business),
-                title: Text('Business'),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.school),
-                title: Text('School'),
-              ),
-            ],
-            currentIndex: 1,
-            selectedItemColor: Colors.amber[800],
-            onTap: null,
-          ),
-        ),
+        bottomNavigationBar:
+            BottomNavigation(userAge: UserAge.fifty, onTap: null),
         floatingActionButton: FloatingActionButton(onPressed: null),
         body: SafeArea(
           child: Life(
