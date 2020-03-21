@@ -1,6 +1,7 @@
 const WEEKS_IN_YEAR = 52;
 const DAYS_IN_YEAR = 365.25;
 const DAYS_IN_WEEK = 7;
+const THRESHOLD = 13;
 
 extension InWeeks on Duration {
   int get inWeeks {
@@ -15,6 +16,10 @@ extension InWeeks on Duration {
 extension ToDuration on int {
   Duration get toYearsDuration {
     return Duration(days: this * 365);
+  }
+
+  Duration get toDaysDuraion {
+    return Duration(days: this);
   }
 }
 

@@ -1,7 +1,6 @@
 import 'package:mobx/mobx.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:life_wasted/components/bottom_navigation.dart';
-import 'package:life_wasted/components/birthday_picker.dart';
 import 'package:life_wasted/util.dart';
 
 part 'store.g.dart';
