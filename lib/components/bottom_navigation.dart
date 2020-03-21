@@ -33,7 +33,7 @@ class BottomNavigation extends StatelessWidget {
         ],
         currentIndex: userAge.index,
         selectedItemColor: Colors.deepOrangeAccent,
-        onTap: (idx) => onTap(UserAge.values.firstWhere((v) => v == userAge)),
+        onTap: (idx) => onTap(UserAge.values.firstWhere((v) => v.index == idx)),
       ),
     );
   }

@@ -12,6 +12,12 @@ extension InWeeks on Duration {
   }
 }
 
+extension ToDuration on int {
+  Duration get toYearsDuration {
+    return Duration(days: this * 365);
+  }
+}
+
 extension Fractional on double {
   double fractional() {
     return this - (this.floor());

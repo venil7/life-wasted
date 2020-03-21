@@ -1,29 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:life_wasted/components/life.dart';
-import 'package:life_wasted/components/bottom_navigation.dart';
-import './util.dart';
+import 'package:provider/provider.dart';
+import 'package:life_wasted/mobx/store.dart';
+import 'package:life_wasted/components/main_page.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(App());
 
-final yearsSoFar = DateTime.now().difference(DateTime(1990, 2, 4)).inYears;
-
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark(),
-      home: Scaffold(
-        bottomNavigationBar:
-            BottomNavigation(userAge: UserAge.fifty, onTap: null),
-        floatingActionButton: FloatingActionButton(onPressed: null),
-        body: SafeArea(
-          child: Life(
-            yearsSoFar: yearsSoFar,
-          ),
-          minimum: EdgeInsets.all(10),
-        ),
+      home: Provider<MainStore>(
+        create: (_) => MainStore(),
+        child: MainPage(),
       ),
     );
   }
