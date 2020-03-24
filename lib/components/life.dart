@@ -26,17 +26,15 @@ class Life extends StatelessWidget {
 
     return LayoutBuilder(
       builder: (ctx, constraints) {
-        return RepaintBoundary(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(maxHeight: constraints.maxHeight),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: years
-                    .map((weeksChecked) => Year(weeksChecked: weeksChecked))
-                    .toList(),
-              ),
+        return ConstrainedBox(
+          constraints: BoxConstraints(maxHeight: constraints.maxHeight),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: years
+                  .map((weeksChecked) => Year(weeksChecked: weeksChecked))
+                  .toList(),
             ),
           ),
         );

@@ -16,6 +16,9 @@ dependencies:
   flutter_mobx: ^1.0.1
   floating_action_row: ^0.1.0
   cupertino_icons: ^0.1.2
+  esys_flutter_share: ^1.0.2
+  styled_text: ^1.0.0+1
+  google_fonts: ^0.3.10
 
 dev_dependencies:
   flutter_test:
