@@ -1,4 +1,4 @@
-package com.example.life_wasted
+package uk.co.darkruby.life_wasted
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

@@ -21,6 +21,14 @@ extension ToDuration on int {
   Duration get toDaysDuraion {
     return Duration(days: this);
   }
+
+  double percentOf(int total) {
+    return this / (total / 100);
+  }
+
+  int get yearsInWeeks {
+    return ((this * 365) / 7).round();
+  }
 }
 
 extension Fractional on double {
@@ -30,5 +38,9 @@ extension Fractional on double {
 
   double get yearToWeeks {
     return WEEKS_IN_YEAR * this;
+  }
+
+  int get yearsInWeeks {
+    return ((this * 365) / 7).round();
   }
 }

@@ -1,5 +1,5 @@
 name: life_wasted
-description: A new Flutter project.
+description: Wasted life week calculator
 
 version: 1.0.0+1
 
@@ -17,14 +17,20 @@ dependencies:
   floating_action_row: ^0.1.0
   cupertino_icons: ^0.1.2
   esys_flutter_share: ^1.0.2
-  styled_text: ^1.0.0+1
   google_fonts: ^0.3.10
+  intl: ^0.16.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^1.8.0
   mobx_codegen: ^1.0.2
+  flutter_launcher_icons: ^0.7.4
 
 flutter:
   uses-material-design: true
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/icon.png"

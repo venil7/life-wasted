@@ -7,7 +7,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:life_wasted/components/floating_action_menu.dart';
 import 'package:provider/provider.dart';
 import 'package:life_wasted/components/bottom_navigation.dart';
-import 'package:life_wasted/components/life.dart';
+import 'package:life_wasted/components/life_chart.dart';
 import 'package:life_wasted/mobx/store.dart';
 import 'package:life_wasted/util.dart';
 
@@ -56,7 +56,6 @@ class MainPage extends StatelessWidget {
             child: Life(
               dob: store.dob,
               yearsTotal: store.yearsTotal(),
-              onDobChange: store.setUserDob,
             ),
             minimum: EdgeInsets.all(10),
           ),
