@@ -10,10 +10,10 @@ const DOB_KEY = 'dob';
 class MainStore = MainStoreBase with _$MainStore;
 
 abstract class MainStoreBase with Store {
-  SharedPreferences _prefs;
+  late SharedPreferences _prefs;
 
   @observable
-  DateTime dob;
+  late DateTime dob;
 
   @observable
   UserAge userAge;
@@ -36,13 +36,13 @@ abstract class MainStoreBase with Store {
   void setUserAge(UserAge ua) => this.userAge = ua;
 
   @action
-  void setUserDob(DateTime dob) async {
+  void setUserDob(DateTime dob) {
     _prefs.setString(DOB_KEY, dob.toIso8601String());
     this.dob = dob;
   }
 
   @computed
-  int yearsTotal() {
+  int get yearsTotal {
     switch (userAge) {
       case UserAge.fifty:
         return 50;

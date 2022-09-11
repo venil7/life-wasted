@@ -10,25 +10,25 @@ enum UserAge {
 class BottomNavigation extends StatelessWidget {
   final UserAge userAge;
   final void Function(UserAge) onTap;
-  BottomNavigation({this.userAge, this.onTap});
+  BottomNavigation({required this.userAge, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      color: ThemeData.dark().accentColor,
+      color: ThemeData.dark().colorScheme.secondary,
       child: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: FaIcon(FontAwesomeIcons.child),
-            title: Text('50 years'),
+            label: ('50 years'),
           ),
           BottomNavigationBarItem(
             icon: FaIcon(FontAwesomeIcons.userTie),
-            title: Text('70 years'),
+            label: ('70 years'),
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.blind),
-            title: Text('90 years'),
+            icon: FaIcon(FontAwesomeIcons.personWalkingWithCane),
+            label: ('90 years'),
           ),
         ],
         currentIndex: userAge.index,

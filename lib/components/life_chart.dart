@@ -44,7 +44,10 @@ class LifeChart extends StatelessWidget {
 class Life extends StatelessWidget {
   final int yearsTotal;
   final DateTime dob;
-  Life({this.yearsTotal = 90, @required this.dob});
+  Life({
+    this.yearsTotal = 90,
+    required this.dob,
+  });
 
   @override
   Widget build(BuildContext context) {

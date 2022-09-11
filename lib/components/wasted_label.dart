@@ -5,7 +5,10 @@ import 'package:intl/intl.dart';
 class WastedLabel extends StatelessWidget {
   final int yearsTotal;
   final double yearsSoFar;
-  WastedLabel({this.yearsTotal, this.yearsSoFar});
+  WastedLabel({
+    required this.yearsTotal,
+    required this.yearsSoFar,
+  });
 
   @override
   Widget build(BuildContext context) {

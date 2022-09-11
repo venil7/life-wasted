@@ -23,7 +23,7 @@ class Week extends StatelessWidget {
   final bool checked;
   final double width;
   Week({
-    @required this.width,
+    required this.width,
     this.checked = false,
   });
 
