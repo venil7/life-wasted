@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class WeekPainter extends CustomPainter {
   final bool checked;
+
   WeekPainter(this.checked);
 
   @override
@@ -22,6 +23,7 @@ class WeekPainter extends CustomPainter {
 class Week extends StatelessWidget {
   final bool checked;
   final double width;
+
   Week({
     required this.width,
     this.checked = false,
@@ -29,7 +31,6 @@ class Week extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final width = MediaQuery.of(context).data.size.width / WEEKS_IN_YEAR;
     return CustomPaint(
       painter: WeekPainter(checked),
       size: Size.square(width),

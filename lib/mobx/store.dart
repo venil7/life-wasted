@@ -13,13 +13,12 @@ abstract class MainStoreBase with Store {
   late SharedPreferences _prefs;
 
   @observable
-  late DateTime dob;
+  DateTime dob = DateTime.now().subtract(THRESHOLD.toYearsDuration);
 
   @observable
   UserAge userAge;
 
   MainStoreBase({this.userAge = UserAge.seventy}) {
-    dob = DateTime.now().subtract(THRESHOLD.toYearsDuration);
     _init();
   }
 

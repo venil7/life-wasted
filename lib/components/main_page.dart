@@ -13,7 +13,7 @@ class MainPage extends StatelessWidget {
 
   final _globalKey = GlobalKey();
 
-  _showCalendar(BuildContext context, MainStore store) async {
+  Future<void> _showCalendar(BuildContext context, MainStore store) async {
     final dob = await showDatePicker(
         context: context,
         initialDate: store.dob,

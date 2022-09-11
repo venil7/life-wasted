@@ -6,10 +6,12 @@ import 'package:life_wasted/util.dart';
 class LifeChart extends StatelessWidget {
   final int yearsTotal;
   final double yearsSoFar;
+
   LifeChart({
     this.yearsTotal = 90,
     this.yearsSoFar = 0,
   });
+
   @override
   Widget build(BuildContext context) {
     final fullYearsSoFar = yearsSoFar.floor();
@@ -44,6 +46,7 @@ class LifeChart extends StatelessWidget {
 class Life extends StatelessWidget {
   final int yearsTotal;
   final DateTime dob;
+
   Life({
     this.yearsTotal = 90,
     required this.dob,
