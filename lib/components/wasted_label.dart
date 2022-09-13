@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:life_wasted/util.dart';
+import 'package:life_wasted/util/week.dart';
 import 'package:intl/intl.dart';
 
 class WastedLabel extends StatelessWidget {
@@ -24,7 +24,7 @@ class WastedLabel extends StatelessWidget {
           backgroundBlendMode: BlendMode.multiply,
         ),
         child: Text(
-          '${format.format(perecent)}%, $weeksSoFar of anticipated $weeksTotal weeks of your life is wasted',
+          '${format.format(perecent)}% of your life is wasted',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
           textAlign: TextAlign.center,
         ),

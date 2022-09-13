@@ -1,7 +1,7 @@
+import 'package:life_wasted/util/week.dart';
 import 'package:mobx/mobx.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:life_wasted/components/bottom_navigation.dart';
-import 'package:life_wasted/util.dart';
 
 part 'store.g.dart';
 

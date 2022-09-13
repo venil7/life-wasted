@@ -1,29 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:life_wasted/components/wasted_label.dart';
 import 'package:life_wasted/components/year.dart';
-import 'package:life_wasted/util.dart';
+import 'package:life_wasted/domain/week.dart';
+import 'package:life_wasted/util/week.dart';
 
 class LifeChart extends StatelessWidget {
-  final int yearsTotal;
-  final double yearsSoFar;
+  final LifeData lifeData;
 
   LifeChart({
-    this.yearsTotal = 90,
-    this.yearsSoFar = 0,
+    required this.lifeData,
   });
 
   @override
   Widget build(BuildContext context) {
-    final fullYearsSoFar = yearsSoFar.floor();
-    final years = List.generate(yearsTotal, (y) {
-      final year = y + 1;
-      return year <= fullYearsSoFar
-          ? WEEKS_IN_YEAR
-          : (year == fullYearsSoFar + 1
-              ? (yearsSoFar.fractional().yearToWeeks.floor())
-              : 0);
-    });
-
     return LayoutBuilder(
       builder: (ctx, constraints) {
         return ConstrainedBox(
@@ -32,9 +21,8 @@ class LifeChart extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
-              children: years
-                  .map((weeksChecked) => Year(weeksChecked: weeksChecked))
-                  .toList(),
+              children:
+                  lifeData.map((weekData) => Year(yearData: weekData)).toList(),
             ),
           ),
         );
@@ -54,12 +42,14 @@ class Life extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final yearsSoFar = DateTime.now().difference(dob).inYears;
+    final diff = DateTime.now().difference(dob);
+    final weeksSoFar = diff.inWeeks;
+    final yearsSoFar = diff.inYears;
+    final lifeData = createLifeData(yearsTotal, weeksSoFar);
     return Stack(
       children: <Widget>[
         LifeChart(
-          yearsTotal: yearsTotal,
-          yearsSoFar: yearsSoFar,
+          lifeData: lifeData,
         ),
         WastedLabel(
           yearsTotal: yearsTotal,

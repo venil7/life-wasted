@@ -3,7 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:life_wasted/components/bottom_navigation.dart';
 import 'package:life_wasted/components/life_chart.dart';
 import 'package:life_wasted/mobx/store.dart';
-import 'package:life_wasted/util.dart';
+import 'package:life_wasted/util/week.dart';
 import 'package:provider/provider.dart';
 
 class MainPage extends StatelessWidget {
@@ -22,16 +22,6 @@ class MainPage extends StatelessWidget {
     if (dob != null) store.setUserDob(dob);
   }
 
-  // Future<void> _shareScreenshot() async {
-  // RenderRepaintBoundary boundary =
-  //     _globalKey.currentContext.findRenderObject();
-  // final image = await boundary.toImage(pixelRatio: 3.0);
-  // final byteData = await image.toByteData(format: ImageByteFormat.png);
-  // final pngBytes = byteData.buffer.asUint8List();
-  // return Share.file('Life Wasted', 'wasted.png', pngBytes, 'image/png',
-  //     text: 'My optional text.');
-  // }
-
   @override
   Widget build(BuildContext context) {
     final store = Provider.of<MainStore>(context);
@@ -42,6 +32,7 @@ class MainPage extends StatelessWidget {
           onTap: store.setUserAge,
         ),
         floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.calendar_month),
           onPressed: () => _showCalendar(context, store),
           // onShare: _shareScreenshot,
         ),
