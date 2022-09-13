@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:life_wasted/components/week.dart';
-import '../util.dart';
+import 'package:life_wasted/domain/week.dart';
+import 'package:life_wasted/util/week.dart';
 
 class Year extends StatelessWidget {
-  final int weeksChecked;
-  Year({this.weeksChecked = 0});
+  final YearData yearData;
+
+  Year({required this.yearData});
+
   @override
   Widget build(BuildContext context) {
-    final weeks = List.generate(WEEKS_IN_YEAR, (i) => i + 1 <= weeksChecked);
     return LayoutBuilder(builder: (context, constraints) {
       final width = constraints.maxWidth / WEEKS_IN_YEAR;
       return Row(
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
-        children: weeks
-            .map((checked) => Week(checked: checked, width: width))
+        children: yearData
+            .map((weekData) => Week(
+                  width: width,
+                  weekData: weekData,
+                ))
             .toList(),
       );
     });

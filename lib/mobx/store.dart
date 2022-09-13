@@ -1,7 +1,7 @@
+import 'package:life_wasted/util/week.dart';
 import 'package:mobx/mobx.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:life_wasted/components/bottom_navigation.dart';
-import 'package:life_wasted/util.dart';
 
 part 'store.g.dart';
 
@@ -10,16 +10,15 @@ const DOB_KEY = 'dob';
 class MainStore = MainStoreBase with _$MainStore;
 
 abstract class MainStoreBase with Store {
-  SharedPreferences _prefs;
+  late SharedPreferences _prefs;
 
   @observable
-  DateTime dob;
+  DateTime dob = DateTime.now().subtract(THRESHOLD.toYearsDuration);
 
   @observable
   UserAge userAge;
 
   MainStoreBase({this.userAge = UserAge.seventy}) {
-    dob = DateTime.now().subtract(THRESHOLD.toYearsDuration);
     _init();
   }
 
@@ -36,13 +35,13 @@ abstract class MainStoreBase with Store {
   void setUserAge(UserAge ua) => this.userAge = ua;
 
   @action
-  void setUserDob(DateTime dob) async {
+  void setUserDob(DateTime dob) {
     _prefs.setString(DOB_KEY, dob.toIso8601String());
     this.dob = dob;
   }
 
   @computed
-  int yearsTotal() {
+  int get yearsTotal {
     switch (userAge) {
       case UserAge.fifty:
         return 50;
